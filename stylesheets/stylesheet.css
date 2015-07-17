@@ -58,7 +58,7 @@ header h1 {
 }
 
 header h1:before {
-  content: "&nbsp&nbsp";
+  content: &nbsp&nbsp;
   font-size: 24px;
 }
 
