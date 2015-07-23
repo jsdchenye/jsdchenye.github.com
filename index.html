@@ -28,11 +28,13 @@
 
     <div class="container">
       <section id="main_content">
-<h2>项目经历：</h2>
+<h2 class="titles" id="title1">项目经历</h2>
+<div class="labels" id="label1">
 <h3>◆基于LAMP平台的个人记事本&nbsp;&nbsp;<a href="http://jsdchenye.6655.la/cy_blog/"><em>记事本链接</em></a>【响应性和界面还没完善】</h3>
 <p><em>项目简介---</em>基于Linux操作系统，搭建并配置好apache服务器，借助html语言、css框架以及mysql数据库，使用php，javascript语言开发个人记事本。实现基本的用户登录、用户注册和用户笔记记录的功能。</p>
 <p><em>个人工作---</em>CSS的网页框架+php、javascript、html语言</p>
 <p><em>开发环境---</em>LAMP+Eclipse                <em>开发语言：</em>Javascript、PHP、Shell</p>
+
 
 <h3>◆数据链仿真系统的改进</h3>
 <p><em>项目简介---</em>数据链系统模拟战场上临时的通讯系统；实现预案和消息的分发传送；随着终端增大，      硬件开销以及通信容量的增大，有必要寻找替代解决方案。</p>
@@ -43,12 +45,16 @@
 <p><em>项目简介---</em>利用STM32处理器实现通信信号（周期、幅值等）控制、调节以及显示的调制单元。</p>
 <p><em>个人工作---</em>液晶屏+旋钮的控制+SPI总线</p>
 <p><em>开发环境---</em>IAR+ARM                   <em>开发语言：</em>C</p>
-<hr>
-<h2>竞赛经历：</h2>
-<h3>&nbsp;&nbsp;&nbsp;&nbsp;◆基于自由摆的平板控制系统（全国电子设计大赛  省二）</h3>
-<h3>&nbsp;&nbsp;&nbsp;&nbsp;◆飞思卡尔智能车（光电组）</h3>
-<hr>
-<h2>我为什么可以胜任:</h2>
+</div>
+
+<h2 class="titles" id="title2">竞赛经历</h2>
+<div class="labels" id="label2">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;◆基于自由摆的平板控制系统（全国电子设计大赛  省二）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;◆飞思卡尔智能车（光电组）</p>
+</div>
+
+<h2 class="titles" id="title3">技能素质</h2>
+<div class="labels" id="label3">
 <h3>I.工作所需的基本专业技能</h3>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;熟悉Javascript,html5+CSS3的基本开发语言，利用这些工具开发出一些demo。在github了解了一些前端的知识，包括bootstrap，nodojs，jQuery，Ajax，kissy等等。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;掌握C语言的操作，以及linux下的开发工作，对数据库（mysql，redis）的基本运用，利用php及shell语言开发过实际的项目。做过底层的硬件，对前端开发也有所熟悉。</p>
@@ -58,19 +64,67 @@
 
 <h3>III.团队合作精神以及乐于助人</h3>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;向学弟讲授并共同学习“嵌入式linux的基础知识”</p>
-<hr>
+</div>
 
-<h2>个人荣誉：</h2>
+
+<h2 class="titles" id="title4">个人荣誉</h2>
+<div class="labels" id="label4">
 <p>◆校创新杯三等奖；校电子沙龙一等奖，江苏省高等数学竞赛三等奖；江苏省物理竞赛校一等奖；</p>
 <p>◆“课外活动积极分子”；“亨通光电奖学金”“三好学生”；“二等奖学金”；“优秀学生干部”；</p>
-<h2>兴趣爱好：</h2>
+</div>
+
+<h2 class="titles" id="title5">兴趣爱好</h2>
+<div class="labels" id="label5">
 <p>记笔记：坚持每天写日记（除放假回家）         足球：校新生杯季军（右边卫）</p>
-<h2>性格：</h2>
+</div>
+<h2 class="titles" id="title6">性格</h2>
+<div class="labels" id="label6">
 <p>随和（待人亲切，在意别人感受）                          坚持（校运动会5000米）</p>
-<hr>
+</div>
      </section>
     </div>
 
-    
+    <script type="text/javascript">
+    //<![CDATA[
+    window.onload=function()
+    {
+      var labs=null;
+      var cy_titles=null;
+      if(document.querySelectorAll)
+      {
+        labs=document.querySelectorAll('div.labels');
+        cy_titles=document.querySelectorAll('h2.titles');
+      }
+      else if (document.getElementsByClassName)
+      {
+        labs=document.getElementsByClassName('labels');
+        cy_titles=document.getElementsByClassName('titles');
+      };
+      if(labs){
+        for(var i=0;i<labs.length;i++)
+        {
+          labs[i].style.display="none";
+        }
+        for(var i=0;i<cy_titles.length;i++)
+        {
+          cy_titles[i].onclick=showBlock;
+        }
+      }
+    }
+
+    function showBlock(evnt){
+      var theEvent=evnt ? evnt :window.event;
+      var theSrc=theEvent.target ? theEvent.target : theEvent.srcElement;
+      var itemId="label"+theSrc.id.substr(5,1);
+      var item=document.getElementById(itemId);
+      if(item.style.display=='none'){
+        item.style.display='block';
+      }else{
+        item.style.display='none';
+      }
+    }
+    //]]>
+    </script>
+  
   </body>
 </html>
